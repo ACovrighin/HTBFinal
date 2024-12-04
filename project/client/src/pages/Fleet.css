@@ -1,0 +1,294 @@
+body {
+    
+    background-color: black;
+    margin: 0rem;
+    overflow-x: hidden;
+    font-family: system-ui;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 80px 40px;
+    color:white;
+  }
+  
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+
+
+::-webkit-scrollbar{
+    width: 0px;
+  }
+  ::-webkit-scrollbar-track{
+    background-color: black;
+  }
+.links{
+  padding:20px 100px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links a{
+  font-size:24px;
+  color:white;
+  font-family: monospace;
+  text-decoration: none;
+  font-weight:600;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+
+.links a:hover {
+  color: white; /* Optional color change on hover */
+  text-shadow: 0 0 5px white,   /* Soft inner glow */
+               0 0 10px white,  /* Medium glow */
+               0 0 15px white,  /* Stronger glow */
+               0 0 20px white;  /* Final outer glow */
+}
+
+.fleetDesc{
+  text-align:center;
+  font-family:monospace;
+}
+
+.arrow {
+  width: 50px; /* Adjust the size as needed */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-1575%, 150%); /* Center horizontally and vertically */
+  margin-top:140px;
+}
+
+/*|||||||||||||||||||||*/
+/*Luxury Section Stuff*/
+/*|||||||||||||||||||*/
+
+.luxury{
+  display:flex;
+}
+
+.luxtext{
+  display:flex;
+  flex-direction:column;
+}
+
+.luxury img{
+  margin-top:100px;
+  width:60%;
+  margin-left:-100px;
+}
+
+.luxury p{
+  margin-top:125px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+}
+
+.luxury h3{
+  margin-top:200px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+}
+
+.glow-button {
+  color: white; /* Starting color of the text */
+  background-color: #222; /* Background color for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration:none;
+  font-family:monospace;
+  height:42px;
+  margin-top:150px;
+  width:155px;
+  margin-left:270px;
+}
+
+.glow-button:hover {
+  color: white; /* Optional color change on hover */
+  box-shadow: 0 0 8px white, /* Primary glow */
+              0 0 20px white, /* Larger, softer glow */
+              0 0 30px white, /* Extra glow */
+              0 0 40px white; /* Final outer glow */
+}
+
+/*||||||||||||||||||||*/
+/*Sport Section Stuff*/
+/*||||||||||||||||||*/
+
+.sports{
+  display:flex;
+}
+
+.sportstext{
+  display:flex;
+  flex-direction:column;
+  width:70%;
+  margin-left:40px;
+}
+
+.sports img{
+  margin-top:100px;
+  width:40%;
+  margin-left:0px;
+  background-image: linear-gradient(to left);
+}
+
+.sports p{
+  margin-top:125px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+  width:600px;
+}
+
+.sports h3{
+  margin-top:200px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+  margin-left:-225px;
+}
+
+.glow-button-sports {
+  color: white; /* Starting color of the text */
+  background-color: #222; /* Background color for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration:none;
+  font-family:monospace;
+  height:42px;
+  margin-top:150px;
+  width:155px;
+  margin-left:225px;
+}
+
+.glow-button-sports:hover {
+  color: white; /* Optional color change on hover */
+  box-shadow: 0 0 8px white, /* Primary glow */
+              0 0 20px white, /* Larger, softer glow */
+              0 0 30px white, /* Extra glow */
+              0 0 40px white; /* Final outer glow */
+}
+
+/*|||||||||||||||||*/
+/*XL Section Stuff*/
+/*|||||||||||||||*/
+
+.XL{
+  display:flex;
+}
+
+.XLtext{
+  display:flex;
+  flex-direction:column;
+}
+
+.XL img{
+  margin-top:100px;
+  width:60%;
+  margin-left:-100px;
+}
+
+.XL p{
+  margin-top:125px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+}
+
+.XL h3{
+  margin-top:200px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+}
+
+.glow-button-XL {
+  color: white; /* Starting color of the text */
+  background-color: #222; /* Background color for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration:none;
+  font-family:monospace;
+  height:42px;
+  margin-top:150px;
+  width:120px;
+  margin-left:355px;
+}
+
+.glow-button-XL:hover {
+  color: white; /* Optional color change on hover */
+  box-shadow: 0 0 8px white, /* Primary glow */
+              0 0 20px white, /* Larger, softer glow */
+              0 0 30px white, /* Extra glow */
+              0 0 40px white; /* Final outer glow */
+}
+
+/*||||||||||||||||||||*/
+/*Sport Classics Section Stuff*/
+/*||||||||||||||||||*/
+
+.sportsClassics{
+  display:flex;
+}
+
+.sportsCtext{
+  display:flex;
+  flex-direction:column;
+  width:70%;
+  margin-left:40px;
+}
+
+.sportsClassics img{
+  margin-top:100px;
+  width:50%;
+  margin-left:0px;
+  background-image: linear-gradient(to left);
+}
+
+.sportsClassics p{
+  margin-top:125px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+  width:600px;
+}
+
+.sportsClassics h3{
+  margin-top:200px;
+  text-align:center;
+  font-family:monospace;
+  margin-bottom:-100px;
+  margin-left:-90px;
+}
+
+.glow-button-sportsC {
+  color: white; /* Starting color of the text */
+  background-color: #222; /* Background color for contrast */
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration:none;
+  font-family:monospace;
+  height:42px;
+  margin-top:150px;
+  width:234px;
+  margin-left:180px;
+}
+
+.glow-button-sportsC:hover {
+  color: white; /* Optional color change on hover */
+  box-shadow: 0 0 8px white, /* Primary glow */
+              0 0 20px white, /* Larger, softer glow */
+              0 0 30px white, /* Extra glow */
+              0 0 40px white; /* Final outer glow */
+}
