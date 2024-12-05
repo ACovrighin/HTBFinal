@@ -12,12 +12,12 @@ const Home = () => {
 
       <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
         <img className="image" src="/images/6.jpg" alt="Car 6" draggable="false" />
-        <img className="image" src="/images/3.jpg" alt="Car 3" draggable="false" />
-        <img className="image" src="/images/2.jpg" alt="Car 2" draggable="false" />
-        <img className="image" src="/images/1.jpg" alt="Car 1" draggable="false" />
-        <img className="image" src="/images/9.jpg" alt="Car 9" draggable="false" />
-        <img className="image" src="/images/10.jpg" alt="Car 10" draggable="false" />
-        <img className="image" src="/images/7.jpg" alt="Car 7" draggable="false" />
+        <img className="image" src="/images/30.jpg" alt="Car 3" draggable="false" />
+        <img className="image" src="/images/31.jpg" alt="Car 2" draggable="false" />
+        <img className="image" src="/images/33.jpg" alt="Car 1" draggable="false" />
+        <img className="image" src="/images/34.jpg" alt="Car 9" draggable="false" />
+        <img className="image" src="/images/36.jpg" alt="Car 10" draggable="false" />
+        <img className="image" src="/images/32.jpg" alt="Car 7" draggable="false" />
         <img className="image" src="/images/8.jpg" alt="Car 8" draggable="false" />
       </div>
 

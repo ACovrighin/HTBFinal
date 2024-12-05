@@ -7,6 +7,7 @@ import Sports from './pages/Sports';
 import SportsClassics from './pages/SportsClassics';
 import XL from './pages/XL';
 import Help from './pages/Help';
+import Reserve from './pages/Reserve'
 
 
 
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/sports-classics" element ={<SportsClassics />} />
       <Route path="/XL" element ={<XL />} />
       <Route path="/Help" element ={<Help />} />
+      <Route path="/Reserve" element ={<Reserve />} />
     </Routes>
   </Router>
 );

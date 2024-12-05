@@ -1,0 +1,133 @@
+body {
+    
+    background-color: black;
+    margin: 0rem;
+    overflow-x: hidden;
+    font-family: system-ui;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 80px 40px;
+    color:white;
+  }
+  
+  
+::-webkit-scrollbar{
+    width: 0px;
+  }
+  ::-webkit-scrollbar-track{
+    background-color: black;
+  }
+.links{
+  padding:20px 100px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links a{
+  font-size:24px;
+  color:white;
+  font-family: monospace;
+  text-decoration: none;
+  font-weight:600;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+
+.links a:hover {
+  color: white; /* Optional color change on hover */
+  text-shadow: 0 0 5px white,   /* Soft inner glow */
+               0 0 10px white,  /* Medium glow */
+               0 0 15px white,  /* Stronger glow */
+               0 0 20px white;  /* Final outer glow */
+}
+
+.fleetDesc{
+  text-align:center;
+  font-family:monospace;
+}
+
+.glow-button:hover {
+    color: white; /* Optional color change on hover */
+    box-shadow: 0 0 8px white, /* Primary glow */
+                0 0 20px white, /* Larger, softer glow */
+                0 0 30px white, /* Extra glow */
+                0 0 40px white; /* Final outer glow */
+  }
+
+.tow{
+    display:flex;
+    margin:auto;
+    margin-top:30px;
+    margin-bottom:30px;
+    width:30%;
+}
+
+h1{
+    font-family: monospace;
+    text-align:center;
+}
+
+.arrow {
+    width: 50px; /* Adjust the size as needed */
+    margin:auto;
+    margin-left:50%;
+    margin-top:25px;
+  }
+  .arrow2 {
+    width: 50px; /* Adjust the size as needed */
+    margin:auto;
+    margin-left:20px;
+    margin-top:25px;
+  }
+
+
+  .HelpDesc{
+    font-family:monospace;
+    text-align:center;
+    margin-left:200px;
+    margin-right:200px;
+    margin-top: 110px;
+  }
+
+  .arrow {
+    margin-top: 180px;
+    margin-bottom:200px;
+  }
+
+h2{
+    font-family:monospace;
+    text-align:center;
+    margin-left:200px;
+    margin-right:200px;
+}
+
+.IntroText{
+    margin-top:50px;
+    margin-bottom:150px;
+}
+
+.IntroDesc{
+    text-align:center;
+    font-family:monospace;
+    margin-bottom: 20px;
+}
+
+.forms{
+    margin-top:300px;
+    border: 1px solid #ccc;
+    width: 700px;
+    margin-left:380px;
+    font-family: monospace;
+    
+}
+
+.twingo{
+    width:200px;
+    height:auto;
+    margin-left:630px;
+    margin-top: -20%;
+
+    
+    
+}

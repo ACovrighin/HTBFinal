@@ -8,7 +8,7 @@ const HelpPage = () => {
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/fleet">Fleet</Link>
-        <Link to="#">Reserve</Link>
+        <Link to="/reserve">Reserve</Link>
         <Link to="/help">Help</Link>
       </div>
       <br />

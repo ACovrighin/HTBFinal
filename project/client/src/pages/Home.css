@@ -48,9 +48,10 @@ body {
   #image-track > .image {
     width: 40vmin;
     height: 56vmin;
-    object-fit: cover;
-    object-position: 100% center;
+    object-fit:cover;
+    object-position: 50% center;
   }
+
   
   .desc{
     padding-top:600px;
