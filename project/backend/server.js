@@ -21,6 +21,7 @@ mongoose.connect(
 const CarSchema = new mongoose.Schema({
   category: String,
   model: String,
+  price: { type: Number, required: true },
 });
 
 const ReservationSchema = new mongoose.Schema({
@@ -35,6 +36,7 @@ const ReservationSchema = new mongoose.Schema({
   cardNumber: { type: String, required: true },
   expiryDate: { type: String, required: true },
   cvv: { type: String, required: true },
+  totalPrice: { type: Number, required: true },
 });
 
 const Car = mongoose.model('Car', CarSchema, 'cars'); // Explicit collection name
@@ -48,7 +50,7 @@ app.get('/test', (req, res) => res.send('Server is working!'));
 // Fetch all cars
 app.get('/api/cars', async (req, res) => {
   try {
-    const cars = await Car.find();
+    const cars = await Car.find(); // Assumes 'price' is already in the car documents
     if (!cars.length) {
       return res.status(404).json({ message: 'No cars found' });
     }
@@ -62,21 +64,54 @@ app.get('/api/cars', async (req, res) => {
 // Save a new reservation
 app.post('/api/reservations', async (req, res) => {
   try {
-    const { fullName, email, phone, address, rentalDate, carCategory, carModel } = req.body;
+    const {
+      fullName,
+      email,
+      phone,
+      address,
+      rentalDate,
+      checkoutDate,
+      carCategory,
+      carModel,
+    } = req.body;
 
     // Validate input
-    if (!fullName || !email || !phone || !address || !rentalDate || !carCategory || !carModel) {
+    if (!fullName || !email || !phone || !address || !rentalDate || !checkoutDate || !carCategory || !carModel) {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const newReservation = new Reservation(req.body);
+    // Calculate the number of rental days
+    const rentalStart = new Date(rentalDate);
+    const rentalEnd = new Date(checkoutDate);
+    const rentalDays = (rentalEnd - rentalStart) / (1000 * 60 * 60 * 24);
+
+    if (isNaN(rentalDays) || rentalDays <= 0) {
+      return res.status(400).json({ message: 'Invalid rental dates provided' });
+    }
+
+    // Find the selected car's price
+    const car = await Car.findOne({ model: carModel });
+    if (!car || typeof car.price !== 'number') {
+      return res.status(404).json({ message: 'Car not found or invalid price' });
+    }
+
+    const totalPrice = rentalDays * car.price;
+
+    // Create the reservation object
+    const newReservation = new Reservation({
+      ...req.body,
+      totalPrice, // Add the calculated total price
+    });
+
+    // Save the reservation
     await newReservation.save();
-    res.status(201).json({ message: 'Reservation saved successfully' });
+    res.status(201).json({ message: 'Reservation saved successfully', totalPrice });
   } catch (error) {
     console.error('Error saving reservation:', error);
     res.status(500).json({ message: 'Error saving reservation', error: error.message });
   }
 });
+
 
 // Start the server
 const PORT = 5000;

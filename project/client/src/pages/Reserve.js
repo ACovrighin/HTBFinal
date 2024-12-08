@@ -16,6 +16,7 @@ const Reserve = () => {
     cardNumber: '',
     expiryDate: '',
     cvv: '',
+    totalPrice: 0,
   });
 
   const [loading, setLoading] = useState(true);
@@ -47,6 +48,30 @@ const Reserve = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Calculate total price based on selected car and rental duration
+  useEffect(() => {
+    if (formData.rentalDate && formData.checkoutDate && formData.carModel) {
+      const rentalStart = new Date(formData.rentalDate);
+      const rentalEnd = new Date(formData.checkoutDate);
+      const rentalDays = (rentalEnd - rentalStart) / (1000 * 60 * 60 * 24);
+
+      // Find the selected car's price
+      const selectedCar = cars.find((car) => car.model === formData.carModel);
+
+      if (selectedCar && rentalDays > 0) {
+        setFormData((prev) => ({
+          ...prev,
+          totalPrice: rentalDays * selectedCar.price,
+        }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          totalPrice: 0,
+        }));
+      }
+    }
+  }, [formData.rentalDate, formData.checkoutDate, formData.carModel, cars]);
+
   // Submit form data to the backend
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,6 +100,7 @@ const Reserve = () => {
         cardNumber: '',
         expiryDate: '',
         cvv: '',
+        totalPrice: 0,
       });
     } catch (err) {
       alert(`Error submitting reservation: ${err.message}`);
@@ -225,6 +251,8 @@ const Reserve = () => {
       value={formData.carModel}
       onChange={handleChange}
       required
+
+      
     >
       <option value="">Select Car</option>
       {cars
@@ -236,6 +264,16 @@ const Reserve = () => {
         ))}
     </select>
   </div>
+
+  <div>
+          <label>Total Price</label>
+          <input
+            type="text"
+            value={`$${formData.totalPrice}`}
+            readOnly
+            style={{ backgroundColor: '#2e2e2e', color: '#f5f5f5', fontWeight: 'bold' }}
+          />
+        </div>
 
   {/* Credit Card Details */}
   <div>
