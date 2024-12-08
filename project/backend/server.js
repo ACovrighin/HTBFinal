@@ -61,6 +61,20 @@ app.get('/api/cars', async (req, res) => {
   }
 });
 
+    // Fetch active reservations
+    app.get('/api/active-reservations', async (req, res) => {
+      try {
+        const today = new Date();
+        const activeReservations = await Reservation.find({ checkoutDate: { $gte: today } })
+          .select('fullName carModel rentalDate checkoutDate') // Select only required fields
+          .sort('checkoutDate'); // Sort by checkout date for easier viewing
+        res.status(200).json(activeReservations);
+      } catch (error) {
+        console.error('Error fetching active reservations:', error);
+        res.status(500).json({ message: 'Error fetching active reservations', error: error.message });
+      }
+    });
+
 // Save a new reservation
 app.post('/api/reservations', async (req, res) => {
   try {
@@ -102,6 +116,7 @@ app.post('/api/reservations', async (req, res) => {
       ...req.body,
       totalPrice, // Add the calculated total price
     });
+
 
     // Save the reservation
     await newReservation.save();
