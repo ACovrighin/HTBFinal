@@ -29,8 +29,12 @@ const ReservationSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   address: { type: String, required: true },
   rentalDate: { type: Date, required: true },
+  checkoutDate: { type: Date, required: true },
   carCategory: { type: String, required: true },
   carModel: { type: String, required: true },
+  cardNumber: { type: String, required: true },
+  expiryDate: { type: String, required: true },
+  cvv: { type: String, required: true },
 });
 
 const Car = mongoose.model('Car', CarSchema, 'cars'); // Explicit collection name

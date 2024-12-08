@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './ReserveStyle.css'; // Ensure this CSS file reflects your desired styling
 
 const Reserve = () => {
   const [cars, setCars] = useState([]);
@@ -8,8 +10,12 @@ const Reserve = () => {
     phone: '',
     address: '',
     rentalDate: '',
+    checkoutDate: '',
     carCategory: '',
     carModel: '',
+    cardNumber: '',
+    expiryDate: '',
+    cvv: '',
   });
 
   const [loading, setLoading] = useState(true);
@@ -63,8 +69,12 @@ const Reserve = () => {
         phone: '',
         address: '',
         rentalDate: '',
+        checkoutDate: '',
         carCategory: '',
         carModel: '',
+        cardNumber: '',
+        expiryDate: '',
+        cvv: '',
       });
     } catch (err) {
       alert(`Error submitting reservation: ${err.message}`);
@@ -75,102 +85,206 @@ const Reserve = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: '500px', margin: '0 auto' }}>
-      <h2>Reserve a Car</h2>
-
-      <div>
-        <label>Full Name</label>
-        <input
-          type="text"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-          required
-        />
+    
+    <div>
+      <div className="links">
+        <Link to="/">Home</Link>
+        <Link to="/fleet">Fleet</Link>
+        <Link to="/reserve">Reserve</Link>
+        <Link to="/help">Help</Link>
       </div>
 
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
+      <h2 className="IntroText" style={{ textAlign: 'center' }}>
+        Finally Made Up Your Mind?
+      </h2>
 
-      <div>
-        <label>Phone</label>
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-      </div>
+      <img src="images/22.png" className="twingo" alt="Cute Renault Twingo" />
 
-      <div>
-        <label>Address</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          required
-        />
-      </div>
+      <div className="form-container">
+        <h3 className="IntroDesc">
+          Existing and currently active reservations will appear here.
+        </h3>
+        <h3 className="IntroDesc">
+          Or you can scroll down and make a new one by following the simple steps.
+        </h3>
+        <h3 className="IntroDesc">Up to you, we won’t judge :)</h3>
 
-      <div>
-        <label>Rental Date</label>
-        <input
-          type="date"
-          name="rentalDate"
-          value={formData.rentalDate}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <img src="images/arrow.png" className="arrow" alt="Arrow" />
 
-      <div>
-        <label>Car Category</label>
-        <select
-          name="carCategory"
-          value={formData.carCategory}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select Category</option>
-          {[...new Set(cars.map((car) => car.category))].map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="forms">
+        <form onSubmit={handleSubmit} className="form-container">
+  <h2>Reserve Your Car</h2>
+  
+  {/* Full Name */}
+  <div>
+    <label htmlFor="fullName">Full Name</label>
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      placeholder="Enter Your Name"
+      value={formData.fullName}
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-      <div>
-        <label>Car Model</label>
-        <select
-          name="carModel"
-          value={formData.carModel}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select Model</option>
-          {cars
-            .filter((car) => car.category === formData.carCategory)
-            .map((car) => (
-              <option key={car.model} value={car.model}>
-                {car.model}
-              </option>
-            ))}
-        </select>
-      </div>
+  {/* Email */}
+  <div>
+    <label htmlFor="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter Your Email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-      <button type="submit">Submit Reservation</button>
-    </form>
+  {/* Phone */}
+  <div>
+    <label htmlFor="phone">Phone</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="Enter Your Phone Number"
+      value={formData.phone}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Address */}
+  <div>
+    <label htmlFor="address">Address</label>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      placeholder="Enter Your Address"
+      value={formData.address}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Rental Date */}
+  <div>
+    <label htmlFor="rentalDate">Rental Date</label>
+    <input
+      type="date"
+      id="rentalDate"
+      name="rentalDate"
+      value={formData.rentalDate}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Checkout Date */}
+  <div>
+    <label htmlFor="checkoutDate">Checkout Date</label>
+    <input
+      type="date"
+      id="checkoutDate"
+      name="checkoutDate"
+      value={formData.checkoutDate}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  {/* Car Category */}
+  <div>
+    <label htmlFor="carCategory">Car Category</label>
+    <select
+      id="carCategory"
+      name="carCategory"
+      value={formData.carCategory}
+      onChange={handleChange}
+      required
+    >
+      <option value="">Select Category</option>
+      {[...new Set(cars.map((car) => car.category))].map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
+    </select>
+  </div>
+
+  {/* Car Model */}
+  <div>
+    <label htmlFor="carModel">Car Model</label>
+    <select
+      id="carModel"
+      name="carModel"
+      value={formData.carModel}
+      onChange={handleChange}
+      required
+    >
+      <option value="">Select Car</option>
+      {cars
+        .filter((car) => car.category === formData.carCategory)
+        .map((car) => (
+          <option key={car.model} value={car.model}>
+            {car.model}
+          </option>
+        ))}
+    </select>
+  </div>
+
+  {/* Credit Card Details */}
+  <div>
+    <label htmlFor="cardNumber">Card Number</label>
+    <input
+      type="text"
+      id="cardNumber"
+      name="cardNumber"
+      placeholder="Enter 16-digit Card Number"
+      value={formData.cardNumber}
+      onChange={handleChange}
+      maxLength="16"
+      pattern="\d{16}"
+      required
+    />
+  </div>
+
+  <div>
+    <label htmlFor="expiryDate">Expiry Date</label>
+    <input
+      type="month"
+      id="expiryDate"
+      name="expiryDate"
+      value={formData.expiryDate}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <div>
+    <label htmlFor="cvv">CVV</label>
+    <input
+      type="text"
+      id="cvv"
+      name="cvv"
+      placeholder="Enter 3-digit CVV"
+      value={formData.cvv}
+      onChange={handleChange}
+      maxLength="3"
+      pattern="\d{3}"
+      required
+    />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+        </div>
+      </div>
+    </div>
   );
 };
 
