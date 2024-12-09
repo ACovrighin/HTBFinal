@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HelpStyle.css'; // Ensure this path is correct for your project
+import './HelpStyle.css'; 
 
 const HelpPage = () => {
   return (
@@ -16,7 +16,6 @@ const HelpPage = () => {
       <h1>Sh*t Happens</h1>
       <img className="tow" src="images/20.png" alt="Tow Truck" />
       <h1>We'll Be There To Help</h1>
-      <img src="images/arrow.png" className="arrow" alt="Arrow" />
       <p className="HelpDesc">
         We all make mistakes. Whether it's your fault or that other a-hole, you don't have to worry. You can always trust HTB to handle
         all of our prized customers' concerns regarding our rentals. Now while we <b><i>can't</i></b> guarantee that you'll be walking

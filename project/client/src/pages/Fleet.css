@@ -42,11 +42,11 @@ body {
 
 
 .links a:hover {
-  color: white; /* Optional color change on hover */
-  text-shadow: 0 0 5px white,   /* Soft inner glow */
-               0 0 10px white,  /* Medium glow */
-               0 0 15px white,  /* Stronger glow */
-               0 0 20px white;  /* Final outer glow */
+  color: white; 
+  text-shadow: 0 0 5px white,  
+               0 0 10px white,  
+               0 0 15px white,  
+               0 0 20px white;  
 }
 
 .fleetDesc{
@@ -55,11 +55,11 @@ body {
 }
 
 .arrow {
-  width: 50px; /* Adjust the size as needed */
+  width: 50px; 
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-1575%, 150%); /* Center horizontally and vertically */
+  transform: translate(-1575%, 150%); 
   margin-top:140px;
 }
 
@@ -97,8 +97,8 @@ body {
 }
 
 .glow-button {
-  color: white; /* Starting color of the text */
-  background-color: #222; /* Background color for contrast */
+  color: white; 
+  background-color: #222; 
   padding: 10px 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -111,11 +111,11 @@ body {
 }
 
 .glow-button:hover {
-  color: white; /* Optional color change on hover */
-  box-shadow: 0 0 8px white, /* Primary glow */
-              0 0 20px white, /* Larger, softer glow */
-              0 0 30px white, /* Extra glow */
-              0 0 40px white; /* Final outer glow */
+  color: white;
+  box-shadow: 0 0 8px white, 
+              0 0 20px white, 
+              0 0 30px white,
+              0 0 40px white; 
 }
 
 /*||||||||||||||||||||*/
@@ -157,8 +157,8 @@ body {
 }
 
 .glow-button-sports {
-  color: white; /* Starting color of the text */
-  background-color: #222; /* Background color for contrast */
+  color: white;
+  background-color: #222; 
   padding: 10px 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -171,11 +171,11 @@ body {
 }
 
 .glow-button-sports:hover {
-  color: white; /* Optional color change on hover */
-  box-shadow: 0 0 8px white, /* Primary glow */
-              0 0 20px white, /* Larger, softer glow */
-              0 0 30px white, /* Extra glow */
-              0 0 40px white; /* Final outer glow */
+  color: white; 
+  box-shadow: 0 0 8px white,
+              0 0 20px white, 
+              0 0 30px white, 
+              0 0 40px white; 
 }
 
 /*|||||||||||||||||*/
@@ -212,8 +212,8 @@ body {
 }
 
 .glow-button-XL {
-  color: white; /* Starting color of the text */
-  background-color: #222; /* Background color for contrast */
+  color: white; 
+  background-color: #222; 
   padding: 10px 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -226,11 +226,11 @@ body {
 }
 
 .glow-button-XL:hover {
-  color: white; /* Optional color change on hover */
-  box-shadow: 0 0 8px white, /* Primary glow */
-              0 0 20px white, /* Larger, softer glow */
-              0 0 30px white, /* Extra glow */
-              0 0 40px white; /* Final outer glow */
+  color: white; 
+  box-shadow: 0 0 8px white, 
+              0 0 20px white, 
+              0 0 30px white, 
+              0 0 40px white; 
 }
 
 /*||||||||||||||||||||*/
@@ -272,8 +272,8 @@ body {
 }
 
 .glow-button-sportsC {
-  color: white; /* Starting color of the text */
-  background-color: #222; /* Background color for contrast */
+  color: white; 
+  background-color: #222; 
   padding: 10px 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -286,9 +286,9 @@ body {
 }
 
 .glow-button-sportsC:hover {
-  color: white; /* Optional color change on hover */
-  box-shadow: 0 0 8px white, /* Primary glow */
-              0 0 20px white, /* Larger, softer glow */
-              0 0 30px white, /* Extra glow */
-              0 0 40px white; /* Final outer glow */
+  color: white; 
+  box-shadow: 0 0 8px white,
+              0 0 20px white, 
+              0 0 30px white,
+              0 0 40px white; 
 }

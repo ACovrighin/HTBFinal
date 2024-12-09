@@ -15,12 +15,12 @@ const Home = () => {
       0.1,
       1000
     );
-    camera.position.set(1, 3, 6); // Slightly higher position (x, y, z)
-    camera.lookAt(0, 0, 0); // Ensure the camera looks at the center of the scene
+    camera.position.set(1, 3, 6); 
+    camera.lookAt(0, 0, 0); 
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Transparent background
+    renderer.setClearColor(0x000000, 0); 
     mountRef.current.appendChild(renderer.domElement);
 
     // Light
@@ -42,14 +42,14 @@ const Home = () => {
         model.scale.set(200, 200, 200);
     
         // Move the model up
-        model.position.set(-0.5, 1.3, 0); // Adjust X (-0.5 moves it left)
+        model.position.set(-0.5, 1.3, 0); 
     
         scene.add(model);
     
         // Animate and rotate the model
         const animate = () => {
           requestAnimationFrame(animate);
-          model.rotation.y += 0.01; // Rotate horizontally
+          model.rotation.y += 0.01; 
           renderer.render(scene, camera);
         };
         animate();
@@ -88,7 +88,6 @@ const Home = () => {
         <div ref={mountRef} style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Content Scrolls Normally */}
       <div className="desc">
         <h3>What We're About</h3>
         <p>
@@ -103,7 +102,6 @@ const Home = () => {
         </p>
       </div>
 
-      {/* Links Section */}
       <div className="links">
         <a href="/">Home</a>
         <a href="/fleet">Fleet</a>

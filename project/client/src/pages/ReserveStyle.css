@@ -1,16 +1,14 @@
-/* Base Styles */
 body {
   background-color: black;
   margin: 0rem;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif; /* Updated to Poppins for a modern look */
+  font-family: 'Poppins', sans-serif; 
   font-size: 16px;
   line-height: 1.5;
   padding: 80px 40px;
   color: white;
 }
 
-/* Remove Scrollbar */
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -18,7 +16,6 @@ body {
   background-color: black;
 }
 
-/* Navigation Links */
 .links {
   padding: 40px 100px;
   display: flex;
@@ -43,7 +40,6 @@ body {
                0 0 20px white;
 }
 
-/* Section Descriptions */
 .fleetDesc {
   text-align: center;
   font-family: monospace;
@@ -57,7 +53,6 @@ body {
   margin-top: 110px;
 }
 
-/* Buttons with Glow Effect */
 .glow-button:hover {
   color: white;
   box-shadow: 0 0 8px white,
@@ -66,7 +61,6 @@ body {
               0 0 40px white;
 }
 
-/* Images and Arrows */
 .tow {
   display: flex;
   margin: auto;
@@ -91,14 +85,6 @@ body {
   margin-top: 25px;
 }
 
-.twingo {
-  width: 200px;
-  height: auto;
-  margin-left: 630px;
-  margin-top: -20%;
-}
-
-/* Text Elements */
 h1 {
   font-family: monospace;
   text-align: center;
@@ -122,16 +108,15 @@ h2 {
   margin-bottom: 0px;
 }
 
-/* Form Styling */
 .forms {
   margin-top: 100px;
-  border: 1px solid #444; /* Darker border */
+  border: 1px solid #444; 
   width: 700px;
   margin-left: 380px;
   font-family: monospace;
-  background-color: #1e1e1e; /* Slightly lighter than black */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  background-color: #1e1e1e; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
   padding: 30px;
 }
 
@@ -147,7 +132,7 @@ h2 {
   display: block;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #f5f5f5; /* Muted white */
+  color: #f5f5f5; 
   font-family: monospace;
 }
 
@@ -157,17 +142,17 @@ h2 {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #444; /* Darker input border */
-  border-radius: 8px; /* Smooth input corners */
-  background-color: #2e2e2e; /* Darker input background */
-  color: #f5f5f5; /* Light text */
+  border: 1px solid #444; 
+  border-radius: 8px; 
+  background-color: #2e2e2e; 
+  color: #f5f5f5; 
   font-size: 1rem;
   font-family: monospace;
 }
 
 .forms input::placeholder,
 .forms textarea::placeholder {
-  color: #aaaaaa; /* Subtle placeholder color */
+  color: #aaaaaa; 
   font-family: monospace;
 }
 
@@ -193,11 +178,11 @@ h2 {
 }
 
 .forms button:hover {
-  background-color: #444; /* Slightly brighter on hover */
+  background-color: #444; 
 }
 
 .forms button:active {
-  background-color: #555; /* Even brighter on click */
+  background-color: #555; 
 }
 
 .active-reservations-container {
@@ -234,7 +219,6 @@ h2 {
   text-align: center;
 }
 
-/* Notification Styles */
 .notification {
   position: fixed;
   top: 20px;

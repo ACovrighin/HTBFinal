@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LuxuryStyle.css'; // Ensure this path is correct for your project
+import './LuxuryStyle.css'; 
 
 const SportsClassicsPage = () => {
   const luxuryCars = [
