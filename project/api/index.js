@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(
-  process.env.MONGO_URI, // Use an environment variable for MongoDB URI
+  'mongodb+srv://andrew44291:rKYM0lSgkcRlMlJa@htb.3houy.mongodb.net/HTBrental?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
   .then(() => console.log('Connected to MongoDB'))
@@ -126,5 +126,6 @@ app.post('/api/reservations', async (req, res) => {
   }
 });
 
-// Export the app for Vercel
-module.exports = app;
+// Start the server
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
