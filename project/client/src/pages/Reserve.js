@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ReserveStyle.css';
 
+// Notification Component
+const Notification = ({ message, type, onClose }) => {
+  return (
+    <div className={`notification ${type}`}>
+      <p>{message}</p>
+      <button onClick={onClose}>&times;</button>
+    </div>
+  );
+};
+
 const Reserve = () => {
   const [cars, setCars] = useState([]);
   const [activeReservations, setActiveReservations] = useState([]);
@@ -20,9 +30,9 @@ const Reserve = () => {
     cvv: '',
     totalPrice: 0,
   });
-
   const [loadingCars, setLoadingCars] = useState(true);
   const [error, setError] = useState('');
+  const [notification, setNotification] = useState(null); // Notification state
 
   // Fetch car data from the backend
   useEffect(() => {
@@ -110,7 +120,9 @@ const Reserve = () => {
         throw new Error(`Error submitting reservation: ${response.statusText}`);
       }
 
-      alert('Reservation submitted successfully!');
+      // Show success notification
+      setNotification({ message: 'Reservation submitted successfully!', type: 'success' });
+
       setFormData({
         fullName: '',
         email: '',
@@ -134,9 +146,20 @@ const Reserve = () => {
       };
       fetchActiveReservations();
     } catch (err) {
-      alert(`Error submitting reservation: ${err.message}`);
+      // Show error notification
+      setNotification({ message: `Error submitting reservation: ${err.message}`, type: 'error' });
     }
   };
+
+  // Auto-hide notification after 3 seconds
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => {
+        setNotification(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
 
   if (loadingCars) return <p>Loading car data...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -154,6 +177,14 @@ const Reserve = () => {
         Finally Made Up Your Mind?
       </h2>
 
+      {/* Notification Component */}
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
 
       {/* Active Reservations Section */}
       <div className="active-reservations-container">
@@ -175,13 +206,14 @@ const Reserve = () => {
       </div>
 
       <h3 className="IntroDesc">
-        View currently active reservations here <br/> or scroll down and make a new one by following the simple steps.
+        View currently active reservations here <br /> or scroll down and make a new one by following the simple steps.
       </h3>
       <h3 className="IntroDesc">Up to you, we won’t judge :)</h3>
 
       <div className="forms">
         <form onSubmit={handleSubmit} className="form-container">
           <h2>Reserve Your Car</h2>
+
           {/* Full Name */}
           <div>
             <label htmlFor="fullName">Full Name</label>
@@ -304,6 +336,7 @@ const Reserve = () => {
             </select>
           </div>
 
+          {/* Total Price */}
           <div>
             <label>Total Price</label>
             <input
