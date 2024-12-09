@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(
-  'mongodb+srv://andrew44291:rKYM0lSgkcRlMlJa@htb.3houy.mongodb.net/HTBrental?retryWrites=true&w=majority',
+  process.env.MONGO_URI, // Use an environment variable for MongoDB URI
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
   .then(() => console.log('Connected to MongoDB'))
@@ -61,19 +61,19 @@ app.get('/api/cars', async (req, res) => {
   }
 });
 
-    // Fetch active reservations
-    app.get('/api/active-reservations', async (req, res) => {
-      try {
-        const today = new Date();
-        const activeReservations = await Reservation.find({ checkoutDate: { $gte: today } })
-          .select('fullName carModel rentalDate checkoutDate') // Select only required fields
-          .sort('checkoutDate'); // Sort by checkout date for easier viewing
-        res.status(200).json(activeReservations);
-      } catch (error) {
-        console.error('Error fetching active reservations:', error);
-        res.status(500).json({ message: 'Error fetching active reservations', error: error.message });
-      }
-    });
+// Fetch active reservations
+app.get('/api/active-reservations', async (req, res) => {
+  try {
+    const today = new Date();
+    const activeReservations = await Reservation.find({ checkoutDate: { $gte: today } })
+      .select('fullName carModel rentalDate checkoutDate') // Select only required fields
+      .sort('checkoutDate'); // Sort by checkout date for easier viewing
+    res.status(200).json(activeReservations);
+  } catch (error) {
+    console.error('Error fetching active reservations:', error);
+    res.status(500).json({ message: 'Error fetching active reservations', error: error.message });
+  }
+});
 
 // Save a new reservation
 app.post('/api/reservations', async (req, res) => {
@@ -117,7 +117,6 @@ app.post('/api/reservations', async (req, res) => {
       totalPrice, // Add the calculated total price
     });
 
-
     // Save the reservation
     await newReservation.save();
     res.status(201).json({ message: 'Reservation saved successfully', totalPrice });
@@ -127,7 +126,5 @@ app.post('/api/reservations', async (req, res) => {
   }
 });
 
-
-// Start the server
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Export the app for Vercel
+module.exports = app;
