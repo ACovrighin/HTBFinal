@@ -1,7 +1,80 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import './Home.css';
 
 const Home = () => {
+  const mountRef = useRef(null);
+
+  useEffect(() => {
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(1, 3, 6); // Slightly higher position (x, y, z)
+    camera.lookAt(0, 0, 0); // Ensure the camera looks at the center of the scene
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Transparent background
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Light
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(1, 1, 1);
+    scene.add(light);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    // Load 3D model
+    const loader = new GLTFLoader();
+    loader.load(
+      'models/1993_mclaren_f1.glb',
+      (gltf) => {
+        const model = gltf.scene;
+    
+        // Scale the model
+        model.scale.set(200, 200, 200);
+    
+        // Move the model up
+        model.position.set(-0.5, 1.3, 0); // Adjust X (-0.5 moves it left)
+    
+        scene.add(model);
+    
+        // Animate and rotate the model
+        const animate = () => {
+          requestAnimationFrame(animate);
+          model.rotation.y += 0.01; // Rotate horizontally
+          renderer.render(scene, camera);
+        };
+        animate();
+      },
+      undefined,
+      (error) => {
+        console.error('Error loading 3D model:', error);
+      }
+    );
+
+    // Handle resizing
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      mountRef.current.removeChild(renderer.domElement);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <div className="typewriter">
@@ -10,19 +83,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <img className="image" src="/images/6.jpg" alt="Car 6" draggable="false" />
-        <img className="image" src="/images/30.jpg" alt="Car 3" draggable="false" />
-        <img className="image" src="/images/31.jpg" alt="Car 2" draggable="false" />
-        <img className="image" src="/images/33.jpg" alt="Car 1" draggable="false" />
-        <img className="image" src="/images/34.jpg" alt="Car 9" draggable="false" />
-        <img className="image" src="/images/36.jpg" alt="Car 10" draggable="false" />
-        <img className="image" src="/images/32.jpg" alt="Car 7" draggable="false" />
-        <img className="image" src="/images/8.jpg" alt="Car 8" draggable="false" />
+      {/* Model Section */}
+      <div id="threejs-container" style={{ height: '100vh', overflow: 'hidden' }}>
+        <div ref={mountRef} style={{ width: '100%', height: '100%' }} />
       </div>
 
-
-
+      {/* Content Scrolls Normally */}
       <div className="desc">
         <h3>What We're About</h3>
         <p>
@@ -37,6 +103,7 @@ const Home = () => {
         </p>
       </div>
 
+      {/* Links Section */}
       <div className="links">
         <a href="/">Home</a>
         <a href="/fleet">Fleet</a>
