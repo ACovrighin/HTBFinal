@@ -1,49 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './LuxuryStyle.css'; // Assuming you have your CSS file
+import React from "react";
+import { Link } from "react-router-dom";
 
+const Luxury = () => {
+  const luxuryCars = [
+    { id: 1, name: "Mercedes Benz S-Class", image: "/images/luxury/1.jpg", description: "Price Per Day: $450" },
+    { id: 2, name: "BMW 7 Series", image: "/images/luxury/2.jpg", description: "Price Per Day: $425" },
+    { id: 3, name: "Audi A7", image: "/images/luxury/3.jpg", description: "Price Per Day: $425" },
+    { id: 4, name: "Bentley Flying Spur", image: "/images/luxury/4.jpg", description: "Price Per Day: $600" },
+    { id: 5, name: "Rolls Royce Wraith", image: "/images/luxury/5.jpg", description: "Price Per Day: $700" },
+    { id: 6, name: "Bentley Bentayga", image: "/images/luxury/6.jpg", description: "Price Per Day: $550" },
+  ];
 
-const LuxuryPage = () => {
   return (
     <div>
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/fleet">Fleet</Link>
-        <Link to="#">Reserve</Link>
+        <Link to="/reserve">Reserve</Link>
         <Link to="/help">Help</Link>
       </div>
-
-      <div className="car-card">
-        <img src="images/Luxury/1.jpg" alt="Mercedes-Benz S Class" className="car-photo" />
-        <h3 className="car-title">Mercedes-Benz S Class</h3>
-        <p className="car-description">A brief description of the car, such as make, model, and features.</p>
+      <div className="fleetDesc">
+        <h1>Luxury Fleet</h1>
       </div>
-      
-      <div className="car-card">
-        <img src="images/Luxury/2.jpg" alt="BMW 7 Series" className="car-photo" />
-        <h3 className="car-title">BMW 7 Series</h3>
-        <p className="car-description">A brief description of the car, such as make, model, and features.</p>
-      </div>
-      
-      <div className="car-card">
-        <img src="images/Luxury/3.jpg" alt="Audi A7" className="car-photo" />
-        <h3 className="car-title">Audi A7</h3>
-        <p className="car-description">A brief description of the car, such as make, model, and features.</p>
-      </div>
-      
-      <div className="car-card">
-        <img src="images/Luxury/4.jpg" alt="Bentley Flying Spur" className="car-photo" />
-        <h3 className="car-title">Bentley Flying Spur</h3>
-        <p className="car-description">A brief description of the car, such as make, model, and features.</p>
-      </div>
-      
-      <div className="car-card">
-        <img src="images/Luxury/5.jpg" alt="Rolls Royce Phantom" className="car-photo" />
-        <h3 className="car-title">Rolls Royce Phantom</h3>
-        <p className="car-description">A brief description of the car, such as make, model, and features.</p>
+      <div className="car-grid">
+        {luxuryCars.map((car) => (
+          <div className="car-card" key={car.id}>
+            <img src={car.image} alt={car.name} className="car-photo" />
+            <h2 className="car-title">{car.name}</h2>
+            <p className="car-description">{car.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default LuxuryPage;
+export default Luxury;

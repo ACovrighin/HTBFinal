@@ -154,7 +154,6 @@ const Reserve = () => {
         Finally Made Up Your Mind?
       </h2>
 
-      <img src="images/22.png" className="twingo" alt="Cute Renault Twingo" />
 
       {/* Active Reservations Section */}
       <div className="active-reservations-container">
@@ -176,7 +175,7 @@ const Reserve = () => {
       </div>
 
       <h3 className="IntroDesc">
-        Or you can scroll down and make a new one by following the simple steps.
+        View currently active reservations here <br/> or scroll down and make a new one by following the simple steps.
       </h3>
       <h3 className="IntroDesc">Up to you, we won’t judge :)</h3>
 
@@ -358,7 +357,7 @@ const Reserve = () => {
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit">RESERVE</button>
         </form>
       </div>
     </div>
